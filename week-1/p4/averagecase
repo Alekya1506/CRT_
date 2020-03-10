@@ -1,1 +1,65 @@
+import java.util.*;
+class Main
+{
+    static int Method1(int n)
+    {
+        int n1,n2,count=0;
+        while(n!=1)
+    {
+        if(n%2==0)
+        {
+        n=n>>1;
+        count++;
+        if(n==1)
+    break;
+        }
+        else
+        {
+            n1=n+1;
+            n2=n-1;
+            if(n1==1||n2==1)
+            break;
+            else
+            {
+            if((n2&(n2-1))==0){
+            n=n2;
+            count++;
+            }
+            else{
+            n=n1;
+            count++;
+            }
+            }
+        }
+    }
+    return count;
+    }
+public static void main(String args[])
+	{
+		Scanner s=new Scanner(System.in);
+		int t=s.nextInt();
+		int[] exop=new int[t];
+		for(int j=0;j<t;j++)
+			exop[j]=s.nextInt();
+		int[] actop=new int[t];
+		for(int i=0;i<t;i++)
+		{
+			int n=s.nextInt();
+			actop[i]= Method1(n);
+		}
+		for(int i=0;i<t;i++)
+		{
+			if(actop[i]!=exop[i])
+			{
+				System.out.println("Error");
+				break;
+			}
+			else
+			{
+				System.out.print(actop[i]+" ");
+			}
+		}
+		System.out.println();
+	}
+}
 
