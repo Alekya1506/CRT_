@@ -1,34 +1,35 @@
 import java.util.*;
 class Main
 {
-    static int Method1(int n)			//inappropriate method names
+    static int minreplacements(int n)			
     {
         int n1,n2,count=0;
-        while(n!=1)				//fix indentations
+        while(n!=1)		
     {
         if(n%2==0)
         {
-        n=n>>1;
-        count++;
-        if(n==1)				// this if case is not required
-    break;
+         n=n>>1;
+         count++;
         }
         else
         {
             n1=n+1;
             n2=n-1;
-            if(n1==1||n2==1)			// only n2 can become 1. u can remove n1 == 1 condition
-            break;
+            if(n2==1)
+	     {
+              break;
+	     } 
             else
             {
-            if((n2&(n2-1))==0){			// this logic doesnt give crct ans for n = 8475165 and many more large numbers.
-	    					//check ur logic
-            n=n2;
-            count++;
-            }
-            else{
-            n=n1;
-            count++;
+              if((n2&(n2-1))==0)
+	      {			
+	    	  n=n2;
+                  count++;
+               }
+            else
+	    {
+             n=n1;
+             count++;
             }
             }
         }
@@ -40,8 +41,10 @@ public static void main(String args[])
 		Scanner s=new Scanner(System.in);
 		int t=s.nextInt();
 		int[] exop=new int[t];
-		for(int j=0;j<t;j++)				//use curly braces
+		for(int j=0;j<t;j++)
+		{
 			exop[j]=s.nextInt();
+		}	
 		int[] actop=new int[t];
 		for(int i=0;i<t;i++)
 		{
